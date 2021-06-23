@@ -23,14 +23,29 @@ const useStyles = makeStyles({
   },
 });
 
-export default function PriceCard({price,settoggleComponent}) {
+export default function PriceCard({
+  price,
+  settoggleComponent,
+  toggleComponent,
+}) {
   const classes = useStyles();
+  let borderColor = "#cfd8dc";
+  if (toggleComponent) {
+    borderColor = "#00b0ff";
+  }
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardActionArea onClick={(e)=>{
-        e.preventDefault();
-        settoggleComponent(true)}}>
+    <Card
+      className={classes.root}
+      variant="outlined"
+      style={{ borderBottom: `5px solid ${borderColor}` }}
+    >
+      <CardActionArea
+        onClick={(e) => {
+          e.preventDefault();
+          settoggleComponent(true);
+        }}
+      >
         <CardContent>
           <div
             style={{

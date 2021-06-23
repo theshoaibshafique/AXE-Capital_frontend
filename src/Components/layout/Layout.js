@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   active: {
-    borderLeft: "5px solid " + app.colorOne,
-    backgroundColor: "#3c44b126",
+    borderLeft: "5px solid #2979ff",
+    backgroundColor: "#2979ff26",
     "& span": {
       fontWeight: 600,
       color: "app.colorOne",

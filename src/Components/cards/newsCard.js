@@ -25,15 +25,26 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NewsCard({settoggleComponent}) {
+export default function NewsCard({ settoggleComponent, toggleComponent }) {
   const classes = useStyles();
   const history = useHistory();
+  let borderColor = "#cfd8dc";
+  if (!toggleComponent) {
+    borderColor = "#00b0ff";
+  }
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardActionArea onClick={(e)=>{
-        e.preventDefault();
-        settoggleComponent(false)}}>
+    <Card
+      className={classes.root}
+      variant="outlined"
+      style={{ borderBottom: `5px solid ${borderColor}` }}
+    >
+      <CardActionArea
+        onClick={(e) => {
+          e.preventDefault();
+          settoggleComponent(false);
+        }}
+      >
         <CardContent>
           <div
             style={{

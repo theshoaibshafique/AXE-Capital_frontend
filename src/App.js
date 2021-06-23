@@ -5,7 +5,6 @@ import Home from "./Components/pages/home";
 import Companies from "./Components/pages/companies";
 import Users from "./Components/pages/users";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ResponsiveDrawer from "./Components/layout/drawer";
 import { makeStyles } from "@material-ui/core/styles";
 import userContext from "./context/userContext";
 import Login from "./Components/authentication/login";
@@ -41,12 +40,13 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post(
+      /*  const tokenRes = await Axios.post(
         "http://localhost:4000/users/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
-      );
-      if (tokenRes.data) {
+      );*/
+      if (token !== null) {
+        console.log(token);
         const userRes = await Axios.get("http://localhost:4000/users/", {
           headers: { "x-auth-token": token },
         });
